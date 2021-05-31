@@ -1,0 +1,32 @@
+import { Message } from '../app';
+import { formatDistanceToNow } from 'date-fns';
+import handlebars from 'hbs';
+import express from 'express';
+
+const router = express.Router();
+
+handlebars.registerHelper('format', date => formatDistanceToNow(date, { addSuffix: true }));
+
+const messages: Message[] = [
+  {
+    user: 'walter',
+    text: 'i am the one who knocks',
+    date: new Date(Date.now() - 120000)
+  },
+  {
+    user: 'jesse',
+    text: 'stop knocking. this is my own private domicile and i will not be harassed',
+    date: new Date(Date.now() - 60000)
+  },
+  {
+    user: 'walter jr',
+    text: 'guys i want breakfast',
+    date: new Date()
+  },
+]
+
+router.get('/', (req, res) => {
+  res.render('index', { title: 'Mini Message Board', messages });
+});
+
+export default router;

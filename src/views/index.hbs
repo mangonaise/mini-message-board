@@ -1,0 +1,11 @@
+<div id="message-board">
+  {{#each messages}}
+  <div class="message">
+    <div class="message-info">
+      <span class="message-user">{{this.user}}</span>
+      <span class="message-date">{{format this.date}}</span>
+    </div>
+    <p class="message-text">{{this.text}}</p>
+  </div>
+  {{/each}}
+</div>
