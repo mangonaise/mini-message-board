@@ -1,0 +1,24 @@
+#form-container {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  margin-bottom: 30px;
+  padding: 4px 8px;
+  border: solid 2px rgb(224, 230, 221);
+  border-radius: 4px;
+  font-family: inherit;
+  width: 600px;
+}

@@ -1,7 +1,12 @@
-import { Message } from '../app';
 import { formatDistanceToNow } from 'date-fns';
 import handlebars from 'hbs';
 import express from 'express';
+
+type Message = {
+  user: string,
+  text: string,
+  date: Date
+}
 
 const router = express.Router();
 
@@ -28,5 +33,23 @@ const messages: Message[] = [
 router.get('/', (req, res) => {
   res.render('index', { title: 'Mini Message Board', messages });
 });
+
+router.get('/new', (req, res) => {
+  res.render('new');
+});
+
+router.post('/new', (req, res) => {
+  const { user, text } = req.body;
+
+  if (user && text) {
+    messages.push({
+      text,
+      user,
+      date: new Date()
+    });
+  }
+
+  res.redirect('/');
+})
 
 export default router;
