@@ -7,7 +7,7 @@
     "node": "15.10.0"
   },
   "scripts": {
-    "start": "npm run build && node dist/app.js",
+    "start": "node dist/app.js",
     "dev": "npx nodemon src/app.ts",
     "build": "rimraf dist/ && npm run copy && tsc -p .",
     "copy": "copyfiles -u 1 src/**/*.css src/**/*.hbs dist/"
